@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form | Shohjahon Rakhmatov</title>
+    <link rel="stylesheet" href="./signup.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Sign Up Form</h1>
+
+    <div class="form">
+        <input type="text" name="name" id="name" autocomplete="" required>
+        <label for="name" class="label-name">
+            <span class="content-name">Name</span>
+        </label>
+    </div>
+    <div class="form">
+        <input type="text" name="last-name" id="last-name" required>
+        <label for="last-name" class="label-name">
+            <span class="content-name">Last name</span>
+        </label>
+    </div>
+    <div class="form">
+        <input type="email" name="email" id="email" required>
+        <label for="email" class="label-name">
+            <span class="content-name">Email</span>
+        </label>
+    </div>
+    <div class="form">
+        <input type="password" name="password" id="password" required>
+        <label for="password" class="label-name">
+            <span class="content-name">Password</span>
+        </label>
+    </div>
+    <div class="form">
+        <input type="password" name="confirm" id="confirm" required>
+        <label for="confirm" class="label-name">
+            <span class="content-name">Confirm password</span>
+        </label>
+    </div><br>
+    <p class="sign-in">Already have an account? <a href="./signin.html">Sign in</a></p>
+    <input class="submit" type="submit" value="Submit">
+
+
+    <!-- Autocomplete checkbox -->
+    <div class="autocomplete">
+        <label for="checkbox">Autocomplete</label>
+        <input type="checkbox" name="checkbox" id="checkbox">
+        <a onclick="showtext()">What is Autocomplete?</a>
+    </div>
+    <!-- Autocomplete checkbox -->
+    <!-- Darkmode checkbox -->
+    <div class="darkmode">
+        <label for="checkbox2">Dark Mode</label>
+        <input type="checkbox" name="checkbox2" id="checkbox2">
+    </div>
+    <!-- Darkmode checkbox -->
+    <p class="check-information">Autocomplete is very useful thing that when you click input, it give you some
+        suggestion which you entered these words. Let's try. Make sure Autocomplete checkbox is checked and click name
+        input.</p>
+
+
+
+
+    <script>
+        // All of inputs' autocomplete is off
+        $("input").attr("autocomplete", "off");
+
+        // on or off autocomplete function
+        $('#checkbox').change(function () {
+            var c = this.checked ? 'on' : 'off';
+            $("input").attr("autocomplete", c);
+        });
+
+        // darkmode function
+        $('#checkbox2').change(function () {
+            var c = this.checked ? '#252525' : '#fff';
+            $("body").css("background-color", c);
+            $(".form input").css("background-color", c);
+            var g = this.checked ? '#fff' : '#000';
+            $("body").css("color", g);
+        });
+
+        // autocomplete a hide when window load
+        $(window).on('load', function () {
+            $(".autocomplete a").hide();
+        });
+
+        $(".autocomplete").mouseenter(function () {
+            $(".autocomplete a").show();
+        });
+
+        $(".autocomplete").mouseleave(function () {
+            $(".autocomplete a").hide();
+        });
+
+        $(".check-information").hide();
+
+        function showtext() {
+            $(".check-information").show();
+        }
+
+
+    </script>
+
+</body>
+
+</html>
